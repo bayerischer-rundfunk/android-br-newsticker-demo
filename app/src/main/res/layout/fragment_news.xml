@@ -4,6 +4,10 @@
 
     <data>
 
+        <import type="de.br.news.showcase.data.FetchState" />
+
+        <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="de.br.news.showcase.data.NewsViewModel" />
@@ -17,6 +21,20 @@
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:items="@{viewModel.items}" />
+            app:items="@{viewModel.items}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:visibility="@{viewModel.fetchState == FetchState.FETCHING ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
