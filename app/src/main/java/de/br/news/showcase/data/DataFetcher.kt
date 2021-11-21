@@ -58,6 +58,10 @@ class DataFetcher {
         )
     }
 
+    /**
+     * Note: This is a kotlin extensions function - can be used globally
+     * eg.  tags = json.getJSONArray("tags").toStringList()
+     */
     fun JSONArray.toStringList(): MutableList<String> {
         val list = mutableListOf<String>()
         for(i in 0 until length()){
