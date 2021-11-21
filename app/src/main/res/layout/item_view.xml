@@ -7,7 +7,7 @@
 
         <variable
             name="item"
-            type="String" />
+            type="de.br.news.showcase.data.NewsModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,7 +24,7 @@
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
             android:gravity="center_vertical"
-            android:text="@{item}"
+            android:text="@{item.title}"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

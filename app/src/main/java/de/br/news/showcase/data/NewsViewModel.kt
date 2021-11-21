@@ -6,8 +6,10 @@ import androidx.lifecycle.ViewModel
 
 class NewsViewModel : ViewModel() {
 
-    val items: LiveData<List<String>> =
-        MutableLiveData<List<String>>().apply {
-            value = DataRepository().getItemsPage()
+    val items: LiveData<List<NewsModel>> =
+        MutableLiveData<List<NewsModel>>().apply {
+            value = DataRepository().getNewsData()
         }
+
+
 }

@@ -2,19 +2,13 @@ package de.br.news.showcase.data
 
 class DataRepository {
 
-    private var nextItem = 1
+    private val newsData = mutableListOf<NewsModel>()
 
-    fun getItemsPage(pageSize: Int = 20): List<String> {
+    fun getNewsData(): List<NewsModel> {
+        newsData.clear()
+        newsData.add(NewsModel("", "Test 1"))
+        newsData.add(NewsModel("", "Test 2"))
 
-        val items = mutableListOf<String>()
-        val lastItem = nextItem + pageSize - 1
-
-        for (i in nextItem..lastItem) {
-            items.add("Item $i")
-        }
-
-        nextItem = lastItem + 1
-
-        return items
+        return newsData
     }
 }

@@ -7,11 +7,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import de.br.news.showcase.R
+import de.br.news.showcase.data.NewsModel
 import de.br.news.showcase.databinding.ItemViewBinding
 
 class NewsItemsViewAdapter : RecyclerView.Adapter<NewsItemsViewAdapter.ItemViewHolder>() {
 
-    private val items: MutableList<String> = mutableListOf()
+    private val items: MutableList<NewsModel> = mutableListOf()
 
     override fun getItemCount() = items.size
 
@@ -23,7 +24,7 @@ class NewsItemsViewAdapter : RecyclerView.Adapter<NewsItemsViewAdapter.ItemViewH
         holder.bind(items[position])
     }
 
-    fun update(newItems: List<String>) {
+    fun update(newItems: List<NewsModel>) {
         val diff = NewsItemDiffCallback(items, newItems)
         val result = DiffUtil.calculateDiff(diff)
         result.dispatchUpdatesTo(this)
@@ -35,7 +36,7 @@ class NewsItemsViewAdapter : RecyclerView.Adapter<NewsItemsViewAdapter.ItemViewH
     companion object {
         @JvmStatic
         @BindingAdapter("items")
-        fun RecyclerView.bindItems(items: List<String>) {
+        fun RecyclerView.bindItems(items: List<NewsModel>) {
             val adapter = adapter as NewsItemsViewAdapter
             adapter.update(items)
         }
@@ -51,7 +52,7 @@ class NewsItemsViewAdapter : RecyclerView.Adapter<NewsItemsViewAdapter.ItemViewH
         )
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: String) {
+        fun bind(item: NewsModel) {
             binding.item = item
         }
     }
