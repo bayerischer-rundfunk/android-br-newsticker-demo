@@ -1,8 +1,8 @@
 package de.br.news.showcase.data
 
-import android.util.Log
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import org.json.JSONArray
 import org.json.JSONObject
 
 class DataFetcher {
@@ -47,7 +47,22 @@ class DataFetcher {
     private fun convertJsonItemToNewsItem(json: JSONObject): NewsModel {
         return NewsModel(
             id = json.getString("id"),
-            title = json.getString("title")
+            title = json.getString("title"),
+            headline = json.getString("headline"),
+            image = json.getJSONArray("images").getJSONObject(0).getString("url"),
+            publicationDate = json.getString("publicationDate"),
+            shareLink = json.getString("shareLink"),
+            teaserText = json.getString("teaserText"),
+            text = json.getString("text"),
+            tags = json.getJSONArray("tags").toStringList()
         )
+    }
+
+    fun JSONArray.toStringList(): MutableList<String> {
+        val list = mutableListOf<String>()
+        for(i in 0 until length()){
+            list.add(getString(i))
+        }
+        return list
     }
 }
