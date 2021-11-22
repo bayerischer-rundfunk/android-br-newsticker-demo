@@ -32,6 +32,7 @@ class NewsFragment : Fragment() {
 
         setupRecyclerview(binding)
         setupRefresher(binding)
+        setupReload(binding)
 
         return binding.root
     }
@@ -48,6 +49,14 @@ class NewsFragment : Fragment() {
         binding.refresher.apply {
             setColorSchemeResources(R.color.primaryColor)
             setOnRefreshListener {
+                binding.viewModel?.fetchData()
+            }
+        }
+    }
+
+    private fun setupReload(binding: FragmentNewsBinding) {
+        binding.reloadButton.apply {
+            setOnClickListener {
                 binding.viewModel?.fetchData()
             }
         }

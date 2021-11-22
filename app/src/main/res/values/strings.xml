@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">BR Newsticker</string>
+    <string name="reload">Erneut versuchen</string>
 </resources>
