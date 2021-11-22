@@ -31,6 +31,7 @@ class NewsFragment : Fragment() {
         binding.lifecycleOwner = this
 
         loadRecyclerView(binding)
+        setupReload(binding)
 
         return binding.root
     }
@@ -43,6 +44,14 @@ class NewsFragment : Fragment() {
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
             adapter = NewsItemsViewAdapter()
+        }
+    }
+
+    private fun setupReload(binding: FragmentNewsBinding) {
+        binding.reloadButton.apply {
+            setOnClickListener {
+                binding.viewModel?.fetchData()
+            }
         }
     }
 }
