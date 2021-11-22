@@ -17,24 +17,31 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:clipChildren="false"
-            android:clipToPadding="false"
-            android:paddingTop="12dp"
-            android:paddingBottom="20dp"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/refresher"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:items="@{viewModel.items}"
+            android:layout_height="wrap_content"
+            app:refreshing="@{viewModel.hasData &amp;&amp; viewModel.fetchState == FetchState.FETCHING}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:paddingTop="12dp"
+                android:paddingBottom="20dp"
+                app:items="@{viewModel.items}" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
         <ProgressBar
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:visibility="@{viewModel.fetchState == FetchState.FETCHING ? View.VISIBLE : View.GONE}"
+            android:visibility="@{!viewModel.hasData &amp;&amp; viewModel.fetchState == FetchState.FETCHING ? View.VISIBLE : View.GONE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

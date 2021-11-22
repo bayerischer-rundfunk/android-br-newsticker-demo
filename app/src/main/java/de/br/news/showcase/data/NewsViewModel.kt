@@ -32,4 +32,6 @@ class NewsViewModel : ViewModel() {
             }
         }
     }
+
+    fun hasData() = items.value?.isNotEmpty() == true
 }

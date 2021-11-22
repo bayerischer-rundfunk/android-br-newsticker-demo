@@ -7,9 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import de.br.news.showcase.R
 import de.br.news.showcase.data.NewsViewModel
 import de.br.news.showcase.databinding.FragmentNewsBinding
@@ -28,21 +26,30 @@ class NewsFragment : Fragment() {
             false
         )
 
+        val viewModel = ViewModelProvider(this)[NewsViewModel::class.java]
         binding.lifecycleOwner = this
+        binding.viewModel = viewModel
 
-        loadRecyclerView(binding)
+        setupRecyclerview(binding)
+        setupRefresher(binding)
 
         return binding.root
     }
 
-    private fun loadRecyclerView(binding: FragmentNewsBinding) {
-        val viewModel = ViewModelProvider(this)[NewsViewModel::class.java]
-        binding.viewModel = viewModel
-
+    private fun setupRecyclerview(binding: FragmentNewsBinding) {
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
             adapter = NewsItemsViewAdapter()
+        }
+    }
+
+    private fun setupRefresher(binding: FragmentNewsBinding) {
+        binding.refresher.apply {
+            setColorSchemeResources(R.color.primaryColor)
+            setOnRefreshListener {
+                binding.viewModel?.fetchData()
+            }
         }
     }
 }

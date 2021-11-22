@@ -1,8 +1,6 @@
 package de.br.news.showcase.data
 
-import okhttp3.internal.format
 import java.text.SimpleDateFormat
-import java.time.format.DateTimeFormatter
 import java.util.*
 
 
@@ -23,7 +21,7 @@ data class NewsModel(
 
     fun getPublicationDateText(): String? {
         val date = SERVER_TIME_FORMAT.parse(publicationDate)
-        return USER_TIME_FORMAT.format(date)
+        return if (date == null) null else USER_TIME_FORMAT.format(date)
     }
 
 }
