@@ -9,6 +9,14 @@ import androidx.recyclerview.widget.RecyclerView
 import de.br.news.showcase.R
 import de.br.news.showcase.data.NewsModel
 import de.br.news.showcase.databinding.ItemViewBinding
+import android.content.Intent
+import android.net.Uri
+import androidx.core.content.ContextCompat
+
+import androidx.core.content.ContextCompat.startActivity
+
+
+
 
 class NewsItemsViewAdapter : RecyclerView.Adapter<NewsItemsViewAdapter.ItemViewHolder>() {
 
@@ -22,6 +30,12 @@ class NewsItemsViewAdapter : RecyclerView.Adapter<NewsItemsViewAdapter.ItemViewH
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.bind(items[position])
+        holder.itemView.apply {
+            setOnClickListener {
+                val shareUrl = items[position].shareLink
+                context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(shareUrl)))
+            }
+        }
     }
 
     fun update(newItems: List<NewsModel>) {

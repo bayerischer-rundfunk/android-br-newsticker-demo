@@ -42,7 +42,6 @@ class NewsFragment : Fragment() {
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
-            addItemDecoration(DividerItemDecoration(context, RecyclerView.VERTICAL))
             adapter = NewsItemsViewAdapter()
         }
     }

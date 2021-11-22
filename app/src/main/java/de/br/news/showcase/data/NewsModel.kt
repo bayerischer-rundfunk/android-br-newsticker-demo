@@ -1,5 +1,11 @@
 package de.br.news.showcase.data
 
+import okhttp3.internal.format
+import java.text.SimpleDateFormat
+import java.time.format.DateTimeFormatter
+import java.util.*
+
+
 data class NewsModel(
     val id: String,
     val title: String,
@@ -10,4 +16,16 @@ data class NewsModel(
     val teaserText: String,
     val text: String,
     val tags: List<String>
-)
+) {
+    private val SERVER_TIME_FORMAT = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.GERMAN)
+    private val USER_TIME_FORMAT = SimpleDateFormat("EE dd.MM. HH:mm 'Uhr'", Locale.GERMAN)
+
+
+    fun getPublicationDateText(): String? {
+        val date = SERVER_TIME_FORMAT.parse(publicationDate)
+        return USER_TIME_FORMAT.format(date)
+    }
+
+}
+
+

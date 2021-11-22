@@ -10,7 +10,7 @@ class DataFetcher {
     /**
      * REST API Wrapper
      */
-    private val BACKEND_REST_URL = "https://newsapp-be-ext.br.de/api/v4/news?limit=50"
+    private val BACKEND_REST_URL = "https://newsapp-be-ext.br.de/api/v4/news?limit=100"
 
     /**
      * Use queries with this endpoint for GraphQL: https://android.api.br24.de/graphql
@@ -47,13 +47,13 @@ class DataFetcher {
     private fun convertJsonItemToNewsItem(json: JSONObject): NewsModel {
         return NewsModel(
             id = json.getString("id"),
-            title = json.getString("title"),
-            headline = json.getString("headline"),
+            title = json.getString("title").trim(),
+            headline = json.getString("headline").trim(),
             image = json.getJSONArray("images").getJSONObject(0).getString("url"),
             publicationDate = json.getString("publicationDate"),
             shareLink = json.getString("shareLink"),
-            teaserText = json.getString("teaserText"),
-            text = json.getString("text"),
+            teaserText = json.getString("teaserText").trim(),
+            text = json.getString("text").trim(),
             tags = json.getJSONArray("tags").toStringList()
         )
     }
