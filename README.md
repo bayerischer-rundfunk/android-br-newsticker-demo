@@ -7,12 +7,12 @@ This sample app uses [Coroutines](https://kotlinlang.org/docs/coroutines-overvie
 ## Branches and learning steps
 | Branch  | Learning objective |
 | ------------- | ------------- |
-| lesson-1-setup  | Hello World setup: Android Studio, Project setup and files, Gradle, Activities, Fragments  |
-| lesson-2-reyclerview-viewmodel  | RecyclerView, ViewModel, Data Binding  |
-| lesson-3-data-fetching  | Kotlin Coroutines, OkHttp, Enums, JSON, Parsing, Deserialization |
-| lesson-4-user-interface  | Material Design, CardViews, Binding data to layout xml |
-| lesson-5-swipe-refresh-layout  | Error-handling, SwipeRefreshLayout  |
-| master |Final MVP |
+| [lesson-1-setup](../../tree/lesson-1-setup) | Hello World setup: Android Studio, Project setup and files, Gradle, Activities, Fragments  |
+| [lesson-2-recyclerview-viewmodel](../../tree/lesson-2-recyclerview-viewmodel)  | RecyclerView, ViewModel, Data Binding  |
+| [lesson-3-data-fetching](../../tree/lesson-3-data-fetching)  | Kotlin Coroutines, OkHttp, Enums, JSON, Parsing, Deserialization |
+| [lesson-4-user-interface](../../tree/lesson-4-user-interface)  | Material Design, CardViews, Binding data to layout xml |
+| [lesson-5-swipe-refresh-layout](../../tree/lesson-5-swipe-refresh-layout)  | Error-handling, SwipeRefreshLayout  |
+| [master](../../tree/master) |Final MVP |
 
 ## Take a look
 <p align="left">
