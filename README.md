@@ -4,7 +4,6 @@ Showcase for a ViewModel-based architecture for retrieving and displaying curren
 
 This sample app uses [Coroutines](https://kotlinlang.org/docs/coroutines-overview.html) to fetch current [BR news data](https://br.de/nachrichten) as a news ticker and displays them in a [RecyclerView](https://developer.android.com/guide/topics/ui/layout/recyclerview) by using [Data Binding](https://developer.android.com/topic/libraries/view-binding) and [ViewModels](https://developer.android.com/topic/libraries/architecture/viewmodel). [Dark theme](https://developer.android.com/guide/topics/ui/look-and-feel/darktheme) handling is supported. The app is written in [Kotlin](https://developer.android.com/kotlin).
 
-
 ## Branches and learning steps
 | Branch  | Learning objective |
 | ------------- | ------------- |
@@ -14,3 +13,8 @@ This sample app uses [Coroutines](https://kotlinlang.org/docs/coroutines-overvie
 | lesson-4-user-interface  | Material Design, CardViews, Binding data to layout xml |
 | lesson-5-swipe-refresh-layout  | Error-handling, SwipeRefreshLayout  |
 | master |Final MVP |
+
+## Take a look
+<p align="left">
+  <img width="300" src="https://user-images.githubusercontent.com/4179204/142881048-3d938969-4a89-490d-bd93-4e2eade0cc71.png">
+</p>
